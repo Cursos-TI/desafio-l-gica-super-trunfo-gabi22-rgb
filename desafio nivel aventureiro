@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int main()
-{
-
-
 int main(){
      setlocale(LC_ALL, "Portuguese");
      char estado1[49];
@@ -15,7 +11,7 @@ int main(){
      char codcidade[31];
      char nomecidade[52];           //declaracao de variaveis
      float populacao1,populacao;
-     int numponturistico1;
+     int numponturistico1,opcao;
      float areacid1,pib1,area,pib;
      float densidade,pibpercapita1,denpo,pibpercapita2;
 
@@ -52,34 +48,44 @@ int main(){
      pibpercapita1 = pib1 / populacao1;
      pibpercapita2 = pib / populacao; // calculo do pib
 
-     //if (densidade < denpo){             //comparacao usando if if-else
-          //  printf(" A carta 1 venceu\n");
-     //}
-     //else{
-       // printf(" carta 2 venceu \n");
-     //}
 
-     switch(densidade < denpo){
+  printf("Escolha um atributo para comparar:\n");
+  printf("1 - Nome das cidades!\n");
+  printf("2 - O atributo usado na comparação e a população!\n");
+  printf("3 - A carta que venceu! \n");
+  printf("Opção: ");
+  scanf("%d", &opcao);
+
+     switch(opcao){
     case 1:
-      printf("Os nome das cidades são: %s %s \n", nomecid1,nomecidade);
+      printf("%s -carta 1 -carta 2 %s\n", nomecid1, nomecidade);
       break;
     case 2:
-      printf("O atributo usado na comparação depois do calculo da densidade é:  %2.f  %2.f \n", denpo,densidade);
-      break;
-    case 3:
-      printf("Os valores da população de cada carta são: \n", populacao1,populacao);
-      break;
-    case 4;
-        printf(" A carta vencedora é: %.2f \n ",denpo);
-        break;
-    case 5:
-        printf("Empate das cartas!");
+       printf("Os valores da população de cada carta são: \n");
+       if (populacao1 > populacao){
+            printf("### %s venceu! ###\n", nomecid1);
+          }else if(populacao > populacao1){
+            printf("### %s venceu! ###\n", nomecidade);
+         } else{
+            printf("### EMPATE! ###\n");
+            }
+            break;
+    case 3;
+        printf(" A carta vencedora é: \n ");
+         if (denpo < densidade){
+                printf(" carta com valor %f Venceu!!", denpo);
+        } else if (denpo > densidade){
+                printf("carta com Valor %f venceu!!",densidade);
+
+        } else{
+                printf("### EMPATE! ###\n");}
+            break;
     default:
       printf("Opção inválida\n");
   }
 
-  return 0;
-}
+
+
 
 
 
@@ -92,6 +98,9 @@ int main(){
    printf(" O PIB da carta um e: %.2f \n O pib da carta dois e: %.2f \n",pibpercapita1,pibpercapita2);
    printf(" A cidade vencedora e: %.2f \n ",denpo);
 
+  return 0;
+
+}
 
 }
 
