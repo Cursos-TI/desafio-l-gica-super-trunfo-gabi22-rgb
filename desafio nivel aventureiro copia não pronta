@@ -41,17 +41,17 @@ int main(){
      printf("Digite o numero de pontos turisticos: \n");
      scanf("%d", &pontoturistico2);
 
-     densidade = populacao1 / areacid1;
-     denpo = populacao / area;           // calculo da densidade
+     densidade = populacao1 / areacid1; // calculo da densidade carta 1
+     denpo = populacao / area;           // calculo da densidade carta 2
      pibpercapita1 = (pib1 * 1000000000.0) / populacao1;  // calculo do pib per capita carta 1
-
+     pibpercapita2 = (pib * 1000000000.0) / populacao; // calculo do pib da carta 2
 
 
 
     printf("Escolha um atributo para comparar:\n");
     printf("1 - População\n");
     printf("2 - Área\n");
-    printf("3 - PIB\n");
+    printf("3 - PIB per capita\n");
     printf("4 - Pontos Turísticos\n");
     printf("5 - Densidade Populacional (Menor Vence!)\n");
     printf("Opção: ");
@@ -59,7 +59,7 @@ int main(){
 
 switch(opcao) {
     case 1: // Comparar População
-        if (populacao1 > populacao){  /*...*/
+        if (populacao1 > populacao){
             printf("### %s venceu! ###\n", nomecid1);
           }else if(populacao > populacao1){
             printf("### %s venceu! ###\n", nomecidade);
@@ -69,12 +69,34 @@ switch(opcao) {
             break;
 
     case 2: // Comparar Área
-        // ...
-        break;
-    case 3: // Adicionar case para PIB,
+      if (areacid1 > area){
+            printf("### %f venceu! ###\n", areacid1);
+          }else if(area > areacid1){
+            printf("### %f venceu! ###\n", area);
+         } else{
+            printf("### EMPATE! ###\n");
+            }
+            break;
+
+    case 3: // Adicionar case para PIB percapita
+        if (pibpercapita1 > pibpercapita2){
+            printf("### %f venceu! ###\n", pibpercapita1);
+          }else if(pibpercapita2 > pibpercapita1){
+            printf("### %f venceu! ###\n", pibpercapita2);
+         } else{
+            printf("### EMPATE! ###\n");
+            }
+            break;
 
     case 4: //Pontos Turísticos ...
-        //...
+       if (numponturistico1 > pontoturistico2){
+            printf("### %d venceu! ###\n", numponturistico1);
+          }else if(pontoturistico2 > numponturistico1){
+            printf("### %d venceu! ###\n", pontoturistico2);
+         } else{
+            printf("### EMPATE! ###\n");
+            }
+            break;
     case 5: // Comparar Densidade
         if (densidade < denpo) { // Carta 1 (densidade) vence se for menor
             printf("### %s venceu na Densidade! ###\n", nomecid1);
@@ -89,17 +111,13 @@ switch(opcao) {
 }
 
 
-
-
-
-  // printf(" o estado um: %s \n o codigo da cidade um e: %s \n o nome da cidade um e: %s \n",estado1,codcidade1,nomecid1);
-  // printf(" A populacao e de: %.2f \n A area da cidade e: %.2f \n o pib da cidade e: %.2f\n O numero de ponto turistico e: %d \n",populacao1,areacid1,pib1,numponturistico1); //saida de dados
-  // printf("o outro estado e: %s \n o nome da outra cidade e: %s \n o codigo da outra cidade e: %s \n",esta,nomecidade,codcidade);
-  // printf("a populacao da outra cidade e: %.2f \n A area da outra cidade e: %.2f \n O pib da cidade e: %.2f \n",populacao,area,pib);
- //  printf(" A densidade da carta um e: %.2f \n A densidade da carta dois e: %.2f \n",densidade,denpo);
- //  printf(" O PIB percapita da carta um e: %.2f \n O pib percapita da carta dois e: %.2f \n",pib,pib1);
+  printf(" o estado um: %s \n o codigo da cidade um e: %s \n o nome da cidade um e: %s \n",estado1,codcidade1,nomecid1);
+  printf(" A populacao e de: %.2f \n A area da cidade e: %.2f \n o pib da cidade e: %.2f\n O numero de ponto turistico e: %d \n",populacao1,areacid1,pib1,numponturistico1); //saida de dados
+  printf("o outro estado e: %s \n o nome da outra cidade e: %s \n o codigo da outra cidade e: %s \n",esta,nomecidade,codcidade);
+  printf("a populacao da outra cidade e: %.2f \n A area da outra cidade e: %.2f \n O pib da cidade e: %.2f \n",populacao,area,pib);
+  printf(" A densidade da carta um e: %.2f \n A densidade da carta dois e: %.2f \n",densidade,denpo);
+  printf(" O PIB percapita da carta um e: %.2f \n O pib percapita da carta dois e: %.2f \n",pibpercapita1,pibpercapita2);
 
 
 return 0;
 }
-
